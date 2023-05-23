@@ -4,4 +4,18 @@ block variables
     - const PAGE_TITLE = 'Accueil'
 
 block content
-    h1 Hello test
+    div
+        h1 Welcome sweets
+
+    div
+        h2 Be tempted by a pastry !
+        p Play our contest to win one of our flagship pastries !
+
+    div
+        h3 Sign up for a better chance of winning our contest
+        form form (action="/registration", method="POST")
+            p Username:
+                input (type="text" name="username" placeholder="Enter your username")
+            p Password:
+                input (type="password" name="password" placeholder="Enter your password")
+            input (type="submit")
