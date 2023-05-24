@@ -8,12 +8,20 @@ block content
         h1 Welcome sweets
 
     div
+        li Login
+            a (href="/login")
+        li Sign up
+            a (href="/register")
+        li Logout
+            a (href="/logout")
+
+    div
         h2 Be tempted by a pastry !
         p Play our contest to win one of our flagship pastries !
 
     div
         h3 Sign up for a better chance of winning our contest
-        form form (action="/registration", method="POST")
+        form form (action="/register", method="POST")
             p Username:
                 input (type="text" name="username" placeholder="Enter your username")
             p Password:
