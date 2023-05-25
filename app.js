@@ -10,6 +10,9 @@ const path = require('path');
 // Require pug template
 const pug = require("pug");
 
+// Require router
+const router = require('./appRouter')
+
 // Require mongoose to use mongoDb
 const mongoose = require("mongoose");
 const port = 3000;
@@ -21,54 +24,31 @@ app.use('/static', express.static('static'));
 // Middleware for parsing
 app.use(express.urlencoded());
 
+app.use(router);
+
 // Define and use pug engine so also
 // declare path on rendering
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
 
+async function dbConnect() {
+    try {
 // Database Connection
-mongoose.connect(
-    "mongodb://localhost:27017/feedback",
-    { useUnifiedTopology: true }
-);
+        await mongoose.connect(
+            "mongodb://127.0.0.1:27017/yams",
+            {useUnifiedTopology: true}
+        );
+        console.log('Connexion MongoDB établie!')
+    } catch (err) {
+        console.log('Erreur de connexion à MongoDB', err);
+        process.exit(0);
+    }
+}
 
-// Create schema
-const feedschema = mongoose.Schema({
-    name: String,
-    email: String,
-    feed: String
-});
-
-// Making a modal on our already
-// defined schema
-const feedModal = mongoose
-    .model('feeds', feedSchema);
-
-// Handling get request
-app.get('/', function (req, res) {
-    // Rendering your form
-    res.render('feedback_form');
-});
-
-// Handling data after submission of form
-app.post("/feedback_form", function (req, res) {
-    const feedData = new feedModal({
-        name: req.body.name,
-        email: req.body.email,
-        feed: req.body.feedback
+dbConnect().then(() =>{
+    app.listen(port, () => {
+        console.log("server is running");
     });
-    feedData.save()
-        .then(data => {
-            res.render('feedback_form',
-                { msg: "Your feedback successfully saved." });
-        })
-        .catch(err => {
-            res.render('feedback_form',
-                { msg: "Check Details." });
-        });
 })
-
 // Server setup
-app.listen(port, () => {
-    console.log("server is running");
-});
+
