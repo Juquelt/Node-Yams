@@ -1,11 +1,22 @@
 extends layout
 
 block variables
-    - const PAGE_TITLE = 'List of pasty'
+    - const PAGE_TITLE = 'Game'
 
 block scripts
-    script(src="/static/yams.js")
+    script( async src="/static/yams.js")
 
 block content
     div
-        h1 Have you made your choice ?
+        h1 Rolls theses dices !
+
+    div
+        button(id="buttonDices" type="submit") Click here
+
+    div(id="container", class="dices")
+        img(id="imageDiceOne")
+        img(id="imageDiceTwo")
+        img(id="imageDiceThree")
+        img(id="imageDiceFour")
+        img(id="imageDiceFive")
+

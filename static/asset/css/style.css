@@ -4,12 +4,23 @@
     font-family: system-ui;
 }
 
+head title {
+    padding: 20px;
+}
+
+#navigation {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
 body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    flex-direction: column;
 }
+
 
 .form {
     display: flex;
@@ -18,34 +29,105 @@ body {
     align-items: center;
     background: white;
     padding: 1rem;
-    box-shadow: 0px 0px 6px 0px #808080b3;
-    border-radius: 10px;
 }
 
-.form form {
+/*Page Home*/
+
+#title {
+    padding: 20px;
     display: flex;
-    flex-direction: column;
     justify-content: center;
 }
 
-.form form input, .form form textarea {
-    border: 1px solid gray;
+#title2 {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#title2 h2{
+    margin-left: 10px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+#formulaire {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+#formulaire h3{
+    margin-bottom: 15px;
+}
+
+#formulaire form {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+/*#formulaire form p {*/
+/*    margin-bottom: 10px;*/
+/*    margin-top: 10px;*/
+/*}*/
+
+#formulaire form input {
+    margin-top: 25px;
+    margin-bottom: 20px;
+    width: 200px;
+    height: 35px;
     border-radius: 5px;
-    padding: 5px 10px;
-    font-size: 20px;
-    outline: none;
 }
 
-.form form label {
-    margin-top: 7px;
-}
-
-.form button {
-    margin-top: 10px;
-    padding: 4px 10px;
-    font-size: 1rem;
-    border: 1px solid gray;
-    border-radius: 7px;
-    outline: none;
+#formulaire form button {
+    width: 100px;
+    height: 35px;
+    border-radius: 5px;
     cursor: pointer;
+}
+
+/*Page Yams*/
+
+#buttonDices {
+    width: 100px;
+    height : 100px;
+    margin: 30px;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+#imageDiceOne {
+    width: 100px;
+    height : 100px;
+    padding: 10px;
+}
+
+#imageDiceTwo {
+    width: 100px;
+    height : 100px;
+    padding: 10px;
+}
+#imageDiceThree {
+    width: 100px;
+    height : 100px;
+    padding: 10px;
+}
+#imageDiceFour {
+    width: 100px;
+    height : 100px;
+    padding: 10px;
+}
+#imageDiceFive {
+    width: 100px;
+    height : 100px;
+    padding: 10px;
+}
+
+footer {
+    margin-top: 30px;
 }
