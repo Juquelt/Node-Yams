@@ -19,7 +19,7 @@ const port = 3000;
 
 // Make a static route to use your
 // static files in client side
-app.use('/static', express.static('static'));
+app.use('/static', express.static('static/'));
 
 // Middleware for parsing
 app.use(express.urlencoded());
